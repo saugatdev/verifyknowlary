@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand: #008080;
+    --color-brand-600: #006666;
+  }
+}
+
+@layer components {
+  .bg-brand {
+    @apply bg-[#008080];
+  }
+  .text-brand {
+    @apply text-[#008080];
+  }
+  .border-brand {
+    @apply border-[#008080];
+  }
+  .bg-brand\/5 {
+    @apply bg-[#008080]/5;
+  }
+  .bg-brand\/10 {
+    @apply bg-[#008080]/10;
+  }
+  .ring-brand\/5 {
+    @apply ring-[#008080]/5;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out;
+  }
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+}
