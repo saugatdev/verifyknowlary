@@ -4,16 +4,10 @@
  * - Production: uses full Vercel backend URL
  */
 export const getApiEndpoint = (): string => {
-  // In production, use the environment variable
-  if (import.meta.env.PROD) {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    if (!apiUrl) {
-      console.warn('VITE_API_URL not set in .env.production');
-      return '/api'; // Fallback
-    }
-    return apiUrl;
-  }
+  // Prefer explicit API URL when provided (needed on Vercel/Next.js)
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  if (apiUrl && apiUrl.trim()) return apiUrl;
 
-  // In development, use relative path (Vite proxy handles it)
+  // Fallback to relative API route
   return '/api';
 };
